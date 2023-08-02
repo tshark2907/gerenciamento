@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de gerenciamento - Alvarenga Games</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <main>
+        <h1>Sistema de Gerenciamento</h1>
+        <form>
+            <label for="product_name">Nome do produto:</label><br>
+            <input id="product_name" type="text"><br>
+            <label for="image_url">Link da imagem:</label><br>
+            <input id="image_url" type="text"><br>
+            <label for="price">Valor do produto</label><br>
+            <input id="price" type="text"><br>
+            <label for="discount_%">Porcentagem do desconto</label><br>
+            <input id="discount_%"><br>
+            <button id="send">Criar</button>
+        </form>
+        <div class="products_holder">
+            <div class="product_frame">
+            <img class="product_image">
+            <span class="product_discount"></span>
+            <span class="product_title"></span>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
