@@ -23,17 +23,17 @@
                 <span>Criar novo produto</span>
             </div>
         </section>
-        <section class="form_area">
-            <form id="new_category">
-                <label for="category_area">Nome da categoria:</label>
-                <input id="category_area" type="text">
+        <section class="form_area hidden">
+            <form id="new_category" class="hidden">
+                <label for="category_name">Nome da categoria:</label>
+                <input id="category_name" type="text">
 
                 <label for="category_background">Plano de fundo:</label>
                 <input id="category_background" type="url">
 
                 <button type="button" id="send_category">Criar</button>
             </form>
-            <form id="new_product">
+            <form id="new_product" class="hidden">
                 <label for="product_name">Nome do produto:</label><br>
                 <input id="product_name" type="text"><br>
 
@@ -50,45 +50,34 @@
             </form>
         </section>
         
-        <div class="preview_holder">
-            <h2>Pré-visualização</h2>
-            <div class="category_preview">
-                <div class="category_banner">
-                    <span class="category_title">Titulo da categoria</span>
-                </div>
-                <div class="products_holder">
-                    <span class="material-symbols-outlined button button-left">chevron_left</span>
-                    <span class="material-symbols-outlined button button-right">chevron_right</span>
-                    <div class="products_expository">
+        <section class="preview_container">
+            <div class="title_container">
+                <h2>Pré-Visualização</h2>
+            </div>
+            <div class="banner_container">
+                <span class="banner_title">Titulo da categoria</span>
+            </div>
+            <div class="stand_container">
+                <span class="material-symbols-outlined left_button button">chevron_left</span>
+                    <div class="stand">
                         <div class="product">
                             <img class="product_image">
-                            <span class="product_discount"></span>
-                            <span class="product_title"></span>
+                            <div class="product_discount_tag">
+                                <span class="product_discount">20%!</span>
+                            </div>
+                            <div class="product_title_container">
+                                <span class="product_title"></span>
+                                <span class="product_price"></span>
+                            </div>
                         </div>
-                        <div class="product">
-                            <img class="product_image">
-                            <span class="product_discount"></span>
-                            <span class="product_title"></span>
-                        </div>
-                        <div class="product">
-                            <img class="product_image">
-                            <span class="product_discount"></span>
-                            <span class="product_title"></span>
-                        </div>
-                        <div class="product">
-                            <img class="product_image">
-                            <span class="product_discount"></span>
-                            <span class="product_title"></span>
-                        </div>
-                        <div class="product">
-                            <img class="product_image">
-                            <span class="product_discount"></span>
-                            <span class="product_title"></span>
-                        </div>
+                        <div class="product"></div>
+                        <div class="product"></div>
+                        <div class="product"></div>
                     </div>
-                </div>
-            </div>            
-        </div>
+                <span class="material-symbols-outlined right_button button">chevron_right</span>
+            </div>
+            
+        </section>
     </main>
     <script src="/index.js" defer></script>
 </body>
