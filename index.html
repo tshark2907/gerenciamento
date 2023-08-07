@@ -13,14 +13,14 @@
 <body>
     <main>
         <h1>Sistema de Gerenciamento</h1>
-        <h2>Selecione a operação:</h2>
+        <h2>Inventário</h2>
         <section class="option_area">
             
             <div id="create_section" class="option">
-                <span>Criar nova categoria</span>
+                <span>Categorias</span>
             </div>
             <div id="create_product" class="option">
-                <span>Criar novo produto</span>
+                <span>Produtos</span>
             </div>
         </section>
         <section class="form_area hidden">
@@ -50,7 +50,7 @@
             </form>
         </section>
         
-        <section class="preview_container">
+        <section class="preview_container hidden">
             <div class="title_container">
                 <h2>Pré-Visualização</h2>
             </div>
@@ -60,24 +60,23 @@
             <div class="stand_container">
                 <span class="material-symbols-outlined left_button button">chevron_left</span>
                     <div class="stand">
-                        <div class="product">
-                            <img class="product_image">
-                            <div class="product_discount_tag">
-                                <span class="product_discount">20%!</span>
-                            </div>
-                            <div class="product_title_container">
-                                <span class="product_title"></span>
-                                <span class="product_price"></span>
-                            </div>
+                        <div class="product add_product">
+                            <span>Adcionar Produto</span>
+                            <span class="material-symbols-outlined">add_circle</span>
                         </div>
-                        <div class="product"></div>
-                        <div class="product"></div>
                         <div class="product"></div>
                     </div>
                 <span class="material-symbols-outlined right_button button">chevron_right</span>
             </div>
-            
         </section>
+
+        <section class="inventario">
+            <div class="add_product">
+              <span>Adicionar Produto</span>
+              <span class="material-symbols-outlined">add_circle</span>
+            </div>
+          </section>
+          
     </main>
     <script src="/index.js" defer></script>
 </body>

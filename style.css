@@ -8,13 +8,14 @@
 main {
     width: 80%;
     margin: 10% auto;
+    padding: 20px;
     background-color: lightgrey;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-section{
+.option_area{
     display: flex;
     flex-direction: row;
     gap: 50px;
@@ -105,9 +106,6 @@ button:hover{
     font-size: 1.3rem;
     margin-left: 50px;
 }
-.hidden{
-    display: none;
-}
 .stand_container{
     height: 140px;
     width: 100%;
@@ -133,7 +131,7 @@ button:hover{
     padding-bottom: 58px;
 }
 .product{
-    height: 100%;
+    height: 140px;
     width: 110px;
     flex-shrink: 0;
     background-color: lightseagreen;
@@ -169,5 +167,34 @@ button:hover{
     bottom: -20%;
     left: 50%;
     transform: translate(-50%,-50%);
+}
+.add_product{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 140px;
+    width: 110px;
+    cursor: pointer;
+    background-color: orange;
+}
+.add_product span{
+    display: inline;
+    justify-content: center;
+    text-align: center;
+}
+.inventario{
+    display: grid;
+    height: fit-content;
+    margin: 50px 0;
+    width: 90%;
+    grid-template-columns: repeat(6,1fr);
+    gap: 15px;
+    padding: 20px;
+    box-shadow: 0px 0px 71px -18px #231F20;
+    border-radius: 10px;
+}
+.hidden{
+    display: none;
 }
 

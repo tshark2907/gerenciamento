@@ -31,6 +31,10 @@ class Category {
         this.products = products;
     }
 }//usado pra modelar o objeto Category, a ser inserido num json
+
+const inventario = {
+    container:document.querySelector('.inventario')
+}
 class Product {
     constructor(name, url, price, discount) {
         this.name = name;
@@ -162,3 +166,7 @@ buttons.create_section.addEventListener("click", () => {
 buttons.send_category.addEventListener("click", createCategory);
 
 buttons.send_product.addEventListener('click', createProduct);
+
+buttons.create_product.addEventListener('click', () =>{
+inventario.container.classList.toggle('hidden')
+} )
