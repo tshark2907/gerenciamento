@@ -42,20 +42,15 @@ main {
     width: 90%;
     display: flex;
     justify-content: center;
-    display: none;
 }
 form {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
 }
 #new_category{
     gap: 30px;
-    display: none;
-}
-#new_product{
-   display: none;
 }
 button{
     width: 100px;
@@ -137,6 +132,10 @@ button:hover{
     background-color: lightseagreen;
     position: relative;
     cursor: pointer;
+}
+.product span{
+    font-size: 0.8rem;
+    text-align: center;
 }
 .product_image{
     width: 100%;

@@ -2,18 +2,19 @@ const buttons = {
     create_section: document.querySelector('#create_section'),
     create_product: document.querySelector('#create_product'),
     send_category: document.querySelector('#send_category'),
-    send_product: document.querySelector('#send_product')
+    send_product: document.querySelector('#send_product'),
+    add_product: document.querySelector('#add_product')
 }//usado pra organizar os botões de ação na pagina
 const data = {
-    name: document.getElementById('product_name'),
-    url: document.getElementById('image_url'),
-    price: document.getElementById('price'),
-    discount: document.getElementById('discount_%')
+    name: document.querySelector('#product_name'),
+    url: document.querySelector('#image_url'),
+    price: document.querySelector('#price'),
+    discount: document.querySelector('#discount_product')
 }//usado pra modelar as informações obtidas no form de produtos
 const form = {
     general: document.querySelector('.form_area'),
-    category: document.querySelector('#new_category'),
-    product: document.querySelector('#new_product')
+    category: document.querySelector('.new_category'),
+    product: document.querySelector('.new_product')
 }//necessário pra exibir o form quando um dos botoes for clicado
 const categoryData = {
     category_name: document.getElementById('category_name'),
@@ -24,6 +25,9 @@ const preview = {
     banner: document.querySelector('.banner_container'),
     product: document.querySelector('.product')
 }//usado pra mudar as propriedades css da categoria preview, e usar no codigo
+const inventario = {
+    container:document.querySelector('.inventario')
+}
 class Category {
     constructor(category_name,category_background,products){
         this.name = category_name;
@@ -31,25 +35,22 @@ class Category {
         this.products = products;
     }
 }//usado pra modelar o objeto Category, a ser inserido num json
-
-const inventario = {
-    container:document.querySelector('.inventario')
-}
 class Product {
     constructor(name, url, price, discount) {
-        this.name = name;
-        this.url = url;
-        this.price = price;
-        this.discount = discount;
+        this.name = name.value;
+        this.url = url.value;
+        this.price = price.value;
+        this.discount = discount.value;
     }
 }//usado pra modelar as informações de produto
-const products = [];
 
-let productCounter = 0;
+const products = []; //variavel de armazenamento de produtos
 
-const toBeSent = [];
+let productCounter = 0; //variavel de controle
 
-let categoryCounter = 0;
+const toBeSent = [];//json final a ser enviado
+
+let categoryCounter = 0;//variavel de controle
 
 //Função para criar a categoria e adcionar ela ao array de itens a serem enviados.
 function createCategory(categoryData){
@@ -95,42 +96,44 @@ número mutavel, dependendo de cada instancia*/
     } 
 }
 function createProduct(data) {
-if (data.name.value !== '' && data.url.value !== '' && data.price.value !== '') {
-    let produto = new Product(data.name.value, data.url.value, data.price.value, data.discount.value);
+/*if (data.name.value !== '' && data.url.value !== '' && data.price.value !== '') {*/
+    let produto = new Product(data.name, data.url, data.price, data.discount);
     products.push(produto);
     console.log(produto);
 
-    createProductElement(produto);
+    console.log(produto.name)
+    console.log(produto.price)
 
     const product = document.createElement('div');
-    product.classList.add(`product product_${productCounter}`);
-
+    product.classList.add("product");
+    product.classList.add(`product_${productCounter}`);
     productCounter++;
 
     const image = document.createElement('img');
     image.classList.add('product_image');
-    image.src = data.url.value;
+    image.src = produto.url;
 
     const product_discount_container = document.createElement('div');
     product_discount_container.classList.add('product_discount_container');
 
     const product_discount = document.createElement('span');
     product_discount.classList.add('product_discount')
-    product_discount.textContent = `${data.discount.value}!`;
+    product_discount.textContent = `${produto.discount}!`;
 
     const product_title_container = document.createElement('div');
     product_title_container.classList.add('product_title_container');
 
     const product_title = document.createElement('span');
     product_title.classList.add('product_title')
-    product_title.textContent = data.name.value;
+    product_title.textContent = produto.name;
 
     const product_price = document.createElement('span');
     product_price.classList.add('product_price');
 
-    let final_price = data.price.value - (data.price.value * data.discount.value / 100);
-    product_price.textContent = `${final_price} R$`
+    let final_price = produto.price - (produto.price * produto.discount / 100);
+    product_price.textContent = `${final_price.toFixed(2)} R$`
 
+    inventario.container.appendChild(product);
     product.appendChild(image);
     product.appendChild(product_discount_container);
     product_discount_container.appendChild(product_discount);
@@ -149,24 +152,25 @@ um "inventário."*/
 
 /*Pensei em criar um outro formulário na página que exiba as categorias para
 o usuário no momento de criação do produto, pra atrelar no momento de criação*/
-}
-function toggleFormVisibility(formToShow, formToHide) {
-    formToShow.classList.remove('hidden');
-    formToHide.classList.add('hidden');
-}
 
-buttons.create_product.addEventListener("click", () => {
-    toggleFormVisibility(form.product, form.category);
+
+buttons.send_category.addEventListener("click", () => {
+    createCategory();
+    form.general.classList.toggle('hidden')
 });
 
-buttons.create_section.addEventListener("click", () => {
-    toggleFormVisibility(form.category, form.product);
+buttons.send_product.addEventListener('click', () => {
+    createProduct(data);
 });
 
-buttons.send_category.addEventListener("click", createCategory);
-
-buttons.send_product.addEventListener('click', createProduct);
 
 buttons.create_product.addEventListener('click', () =>{
-inventario.container.classList.toggle('hidden')
+inventario.container.classList.toggle('hidden');
 } )
+
+buttons.add_product.addEventListener('click', () => {
+    alert('fui clicado')
+    form.general.classList.toggle('hidden');
+    form.product.classList.toggle('hidden');
+})
+

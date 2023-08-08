@@ -23,32 +23,6 @@
                 <span>Produtos</span>
             </div>
         </section>
-        <section class="form_area hidden">
-            <form id="new_category" class="hidden">
-                <label for="category_name">Nome da categoria:</label>
-                <input id="category_name" type="text">
-
-                <label for="category_background">Plano de fundo:</label>
-                <input id="category_background" type="url">
-
-                <button type="button" id="send_category">Criar</button>
-            </form>
-            <form id="new_product" class="hidden">
-                <label for="product_name">Nome do produto:</label><br>
-                <input id="product_name" type="text"><br>
-
-                <label for="image_url">Link da imagem:</label><br>
-                <input id="image_url" type="text"><br>
-
-                <label for="price">Valor do produto</label><br>
-                <input id="price" type="text"><br>
-
-                <label for="discount_%">Porcentagem do desconto</label><br>
-                <input id="discount_%"><br>
-
-                <button type="button" id="send_product">Criar</button>
-            </form>
-        </section>
         
         <section class="preview_container hidden">
             <div class="title_container">
@@ -69,13 +43,41 @@
                 <span class="material-symbols-outlined right_button button">chevron_right</span>
             </div>
         </section>
-
-        <section class="inventario">
-            <div class="add_product">
-              <span>Adicionar Produto</span>
-              <span class="material-symbols-outlined">add_circle</span>
+          <section>
+            <div class="inventario hidden">
+              <div id="add_product" class="add_product">
+                <span>Adicionar Produto</span>
+                <span class="material-symbols-outlined">add_circle</span>
+              </div>
             </div>
           </section>
+
+          <section class="form_area hidden">
+            <form class="new_category hidden">
+                <label for="category_name">Nome da categoria:</label>
+                <input id="category_name" type="text">
+
+                <label for="category_background">Plano de fundo:</label>
+                <input id="category_background" type="url">
+
+                <button type="button" id="send_category">Criar</button>
+            </form>
+            <form class="new_product hidden">
+                <label for="product_name">Nome do produto:</label><br>
+                <input id="product_name" type="text"><br>
+
+                <label for="image_url">Link da imagem:</label><br>
+                <input id="image_url" type="text"><br>
+
+                <label for="price">Valor do produto</label><br>
+                <input id="price" type="text"><br>
+
+                <label for="discount_product">Porcentagem do desconto</label><br>
+                <input id="discount_product"><br>
+
+                <button type="button" id="send_product">Criar</button>
+            </form>
+        </section>
           
     </main>
     <script src="/index.js" defer></script>
