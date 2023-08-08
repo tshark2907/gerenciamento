@@ -125,13 +125,13 @@ function createProduct(data) {
 
     const product_title = document.createElement('span');
     product_title.classList.add('product_title')
-    product_title.textContent = produto.name;
+    product_title.textContent = `${produto.name} `
 
     const product_price = document.createElement('span');
     product_price.classList.add('product_price');
 
     let final_price = produto.price - (produto.price * produto.discount / 100);
-    product_price.textContent = `${final_price.toFixed(2)} R$`
+    product_price.textContent = `${ final_price.toFixed(2)} R$`
 
     inventario.container.appendChild(product);
     product.appendChild(image);
@@ -163,13 +163,11 @@ buttons.send_product.addEventListener('click', () => {
     createProduct(data);
 });
 
-
 buttons.create_product.addEventListener('click', () =>{
 inventario.container.classList.toggle('hidden');
 } )
 
 buttons.add_product.addEventListener('click', () => {
-    alert('fui clicado')
     form.general.classList.toggle('hidden');
     form.product.classList.toggle('hidden');
 })

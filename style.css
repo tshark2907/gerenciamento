@@ -186,8 +186,8 @@ button:hover{
     display: grid;
     height: fit-content;
     margin: 50px 0;
-    width: 90%;
-    grid-template-columns: repeat(6,1fr);
+    width: 100%;
+    grid-template-columns: repeat(5,1fr);
     gap: 15px;
     padding: 20px;
     box-shadow: 0px 0px 71px -18px #231F20;
