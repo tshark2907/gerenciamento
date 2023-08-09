@@ -3,7 +3,8 @@ const buttons = {
     create_product: document.querySelector('#create_product'),
     send_category: document.querySelector('#send_category'),
     send_product: document.querySelector('#send_product'),
-    add_product: document.querySelector('#add_product')
+    add_product: document.querySelector('#add_product'),
+    add_category: document.querySelector('.add_category')
 }//usado pra organizar os botões de ação na pagina
 const data = {
     name: document.querySelector('#product_name'),
@@ -26,7 +27,8 @@ const preview = {
     product: document.querySelector('.product')
 }//usado pra mudar as propriedades css da categoria preview, e usar no codigo
 const inventario = {
-    container:document.querySelector('.inventario')
+    container:document.querySelector('.inventario'),
+    categoria: document.querySelector('.preview_categories')
 }
 class Category {
     constructor(category_name,category_background,products){
@@ -170,5 +172,20 @@ inventario.container.classList.toggle('hidden');
 buttons.add_product.addEventListener('click', () => {
     form.general.classList.toggle('hidden');
     form.product.classList.toggle('hidden');
+})
+buttons.create_section.addEventListener('click', () => {
+    inventario.categoria.classList.toggle('hidden');
+
+    if(!inventario.container.classList.contains('hidden')){
+    inventario.container.classList.add('hidden');
+    }
+})
+
+buttons.add_category.addEventListener('click', () => {
+    form.category.classList.toggle('hidden');
+
+    if(!form.product.classList.contains('hidden')){
+        form.product.classList.add('hidden');
+    }
 })
 
